@@ -1,0 +1,19 @@
+{
+  "rules": {
+    "pedidos": {
+      "$uid": {
+        ".read": "auth != null && auth.uid === $uid && auth.token.firebase.sign_in_provider != 'anonymous'",
+        ".write": "auth != null && auth.uid === $uid && auth.token.firebase.sign_in_provider != 'anonymous'",
+        ".indexOn": [
+          "foodId"
+        ]
+      }
+    },
+    "roles": {
+      "$uid": {
+        ".read": "auth != null && auth.uid === $uid && auth.token.firebase.sign_in_provider != 'anonymous'",
+        ".write": false
+      }
+    }
+  }
+}
