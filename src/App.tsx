@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { Provider } from 'react-redux';
 import { HashRouter, Navigate, Route, Routes, useNavigate, useParams } from 'react-router-dom';
 import { createAppStore } from './store/store';
@@ -11,11 +11,9 @@ import AuthForm from './components/AuthForm';
 import ErrorBoundary from './components/ErrorBoundary';
 import ProtectedRoute from './routing/ProtectedRoute';
 import { configured } from './firebase/client';
-
-// Separación de bundles por ruta: las vistas pesadas no se cargan al abrir Inicio.
-const Foods = lazy(() => import('./components/Foods'));
-const FoodOrder = lazy(() => import('./components/FoodOrder'));
-const Orders = lazy(() => import('./components/Orders'));
+import Foods from './components/Foods';
+import FoodOrder from './components/FoodOrder';
+import Orders from './components/Orders';
 
 function OrderDetail() {
   const { id } = useParams();
